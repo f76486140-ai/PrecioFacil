@@ -11,6 +11,10 @@
   <script src="script.js" defer></script>
 </head>
 
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#087f72">
+
 <body>
 
   <header class="site-header">
@@ -160,6 +164,16 @@
       <p>PrecioFácil — Una herramienta sencilla para tu negocio.</p>
     </div>
   </footer>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js").catch((error) => {
+        console.error("Error al registrar el service worker:", error);
+      });
+    });
+  }
+</script>
 
 </body>
 </html>
